@@ -1,0 +1,81 @@
+<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+  <div
+    class="text-primary link-style"
+    (click)="openVerticallyCentered(content)"
+  >
+    Ya tengo cuenta
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Ingresa tus datos</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form class="mx-1 mx-md-4">
+      <div class="d-flex flex-row align-items-center mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          class="bi bi-envelope-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"
+          />
+        </svg>
+        <div class="form-outline flex-fill mb-0 mx-2">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Tu correo electronico"
+            #Email
+            name="email"
+            [(ngModel)]="email"
+            (blur)="verifyEmail(email)"
+            (focus)="invalidEmail = false"
+          />
+          <div class="msg-error" [hidden]="!invalidEmail">
+            El correo electrónico ingresado es inválido.
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row align-items-center mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          class="bi bi-lock-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+          />
+        </svg>
+        <div class="form-outline flex-fill mb-0">
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            #Password
+            [(ngModel)]="password"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="log(modal)">
+      Iniciar sesión
+    </button>
+  </div>
+</ng-template>

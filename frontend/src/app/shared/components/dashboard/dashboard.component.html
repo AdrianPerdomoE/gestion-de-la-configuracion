@@ -1,0 +1,139 @@
+<ul
+  class="nav nav-pills nav-fill gap-2 p-2 opacity-80"
+  role="tablist"
+  style="
+    background-color: rgba(62, 60, 33, 255);
+    --bs-nav-link-color: var(--bs-white);
+    --bs-nav-pills-link-active-color: var(--bs-black);
+    --bs-nav-pills-link-active-bg: var(--bs-white);
+  "
+>
+  <li>
+    <span
+      class="navbar-brand"
+      style="
+        color: azure;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: larger;
+        font-weight: 400;
+      "
+      >PYME YA.</span
+    >
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'Home'"
+      [routerLinkActive]="['active']"
+    >
+      Inicio
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'Restaurants'"
+      [routerLinkActive]="['active']"
+    >
+      Restaurantes
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'Markets'"
+      [routerLinkActive]="['active']"
+    >
+      Mercados
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'Stores'"
+      [routerLinkActive]="['active']"
+    >
+      Tiendas
+    </a>
+  </li>
+  <li
+    class="nav-item"
+    role="presentation"
+    [hidden]="_sessionService.confirmOpenSesion()"
+  >
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'Register'"
+      [routerLinkActive]="['active']"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-person-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+        />
+      </svg>
+    </a>
+  </li>
+  <li
+    class="nav-item"
+    role="presentation"
+    [hidden]="!_sessionService.confirmOpenSesion()"
+  >
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'Profile'"
+      [routerLinkActive]="['active']"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-person-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+        />
+      </svg>
+    </a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a
+      class="nav-link rounded-5"
+      [routerLink]="'ShoppingKart'"
+      [routerLinkActive]="['active']"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        fill="currentColor"
+        class="bi bi-cart"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
+      </svg>
+      <span
+        class="badge rounded-pill bg-danger"
+        [hidden]="kart.amountItems > 0"
+      >
+        {{ kart.amountItems }}
+      </span>
+      <span
+        class="badge rounded-pill bg-success"
+        [hidden]="kart.amountItems == 0"
+      >
+        {{ kart.amountItems }}
+      </span>
+    </a>
+  </li>
+</ul>

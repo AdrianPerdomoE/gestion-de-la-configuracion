@@ -1,0 +1,41 @@
+.img-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+  }
+
+.transacciones-container {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+
+::-webkit-scrollbar {
+  width: 10px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #413A1C; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
+}
+
+.card.transacciones-container {
+  border: none; 
+  padding: 0; 
+}
+
+.card.transacciones-container:not(:last-child) {
+  border-bottom: 1px solid #ccc; 
+  padding-bottom: 1rem; 
+}
+
+.card.transacciones-container p {
+  margin-bottom: 0.5rem; 
+}

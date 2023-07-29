@@ -1,0 +1,17 @@
+.statistics-container {
+    margin-top: 20px;
+  }
+  
+  .statistics-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .chart-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  

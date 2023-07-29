@@ -1,0 +1,21 @@
+:root{
+    --color-dashboard: #413A1C;
+    --color-title-dashboard: #FFFFFF;
+    --color-background: #DDD3BF;
+    --color-title: #D54636;
+    --color-button: #478AD9;
+    --color-text: #1E3135;
+}
+
+.imageRegis{
+    width: 50%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.col-xl-7{
+    --color-title:var(--color-title);
+    font-family: 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+.msg-error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #dc3545;
+}
+
+body {
+    background-color: #F2EDE4;
+  }
+
+
+.btn.custom-button {
+    background-color: #E6AC94;
+    color: #413A1C; 
+  }
+
+.custom-badge {
+    background-color: #baefb8; /* Cambia el color de fondo */
+    color: #333333; /* Cambia el color del texto */
+    }
+
+body {
+      font-family: 'Times New Roman', Times, serif;
+    }

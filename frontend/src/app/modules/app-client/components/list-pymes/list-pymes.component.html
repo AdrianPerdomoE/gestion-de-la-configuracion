@@ -1,0 +1,8 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+  <div *ngFor="let pyme of pymes">
+    <app-card-pyme [pyme]="pyme"></app-card-pyme>
+  </div>
+  <div *ngIf="pymes.length == 0">
+    <h1>No hay pymes registradas</h1>
+  </div>
+</div>

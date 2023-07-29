@@ -1,0 +1,114 @@
+<div class="container p-2">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="d-flex align-items-center">
+        <img src="../../../../assets/images/Wallet/cartera.png" width="150" />
+        <div class="col-sm-4 card d-flex align-items-center justify-content-center">
+          Tu dinero actual: {{ wallet.money | currency : "USD" }}
+        </div>
+        <div class="d-flex align-items-center" style="max-width: 300px;">
+          <button
+            class="btn btn-primary btn-lg px-3 me-2"
+            (click)="openVerticallyCentered(content)"
+            style="height: 60px; width: 60px;"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-plus-circle"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+              />
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="row p-2">
+        <div class="card-header py-3">
+          <h5 class="mb-0">Historial de transacciones:</h5>
+        </div>
+        <div class="col-sm-8 card w-100" style="max-height: 400px; overflow-y: auto;">
+          <div class="col-sm-8 card transacciones-container w-100" *ngFor="let transacion of transaciones">
+            <!-- Data -->
+            <p>
+              <strong [hidden]="transacion.value > 0" style="color: red">
+                Valor retirado: {{ transacion.value | currency : "USD" }}
+              </strong>
+              <strong [hidden]="transacion.value < 0" style="color: green">
+                Valor ingresado: {{ transacion.value | currency : "USD" }}
+              </strong>
+            </p>
+            <p>Detalles: {{ transacion.detail }}</p>
+            <p>Fecha: {{ transacion.creationDate | date : "dd/MM/yyyy" }}</p>
+            <!-- Data -->
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-6 d-flex align-items-center">
+      <img src="../../../../assets/images/Wallet/dinero.jpg" class="w-100 img-fluid" />
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Recarga la billetera</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form class="mx-1 mx-md-4">
+      <div class="d-flex flex-row align-items-center mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="50"
+          height="50"
+          fill="currentColor"
+          class="bi bi-cash-coin"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"
+          />
+          <path
+            d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z"
+          />
+          <path
+            d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z"
+          />
+          <path
+            d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z"
+          />
+        </svg>
+        <div class="form-outline flex-fill mb-0 mx-2">
+          <input
+            type="number"
+            class="form-control"
+            #Money
+            name="money"
+            [(ngModel)]="money"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="add(modal)">
+      Agregar
+    </button>
+  </div>
+</ng-template>
