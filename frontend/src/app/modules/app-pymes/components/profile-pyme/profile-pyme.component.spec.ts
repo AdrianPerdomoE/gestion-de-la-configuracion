@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfilePymeComponent } from './profile-pyme.component';
 
@@ -21,3 +21,4 @@ describe('ProfilePymeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

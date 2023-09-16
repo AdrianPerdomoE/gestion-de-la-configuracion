@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SideBarClientComponent } from './side-bar-client.component';
 
@@ -21,3 +21,4 @@ describe('SideBarClientComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

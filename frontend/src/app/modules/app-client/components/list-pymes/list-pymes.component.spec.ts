@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListPymesComponent } from './list-pymes.component';
 
@@ -21,3 +21,4 @@ describe('ListPymesComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

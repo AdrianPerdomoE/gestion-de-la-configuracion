@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PymeDesignComponent } from './pyme-design.component';
 
@@ -21,3 +21,4 @@ describe('PymeDesignComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

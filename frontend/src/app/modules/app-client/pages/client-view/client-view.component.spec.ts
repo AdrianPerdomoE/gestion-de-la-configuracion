@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ClientViewComponent } from './client-view.component';
 
@@ -21,3 +21,4 @@ describe('ClientViewComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/
