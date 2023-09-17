@@ -1,5 +1,5 @@
 export const Global = {
-  url: 'http://localhost:3700/api/',
+  url: 'https://pymeya-api.azurewebsites.net/api/',
   SESSION: 'SESSION',
   KART: 'KART',
   RESTAURANTS: 'Restaurantes',
