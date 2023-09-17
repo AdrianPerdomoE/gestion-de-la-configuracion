@@ -46,10 +46,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: node-app
-
-      - name: Debug - List contents of ./backend
-        run: ls 
-
+          
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -57,4 +54,4 @@ jobs:
           app-name: 'pymeya-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8FAE34C15373460B93C7446F7DAC64E1 }}
-          package: ./backend
+          package: .
