@@ -48,8 +48,8 @@ jobs:
           name: node-app
 
       - name: Debug - List contents of ./backend
-        run: ls -la ./backend
-        
+        run: ls 
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
