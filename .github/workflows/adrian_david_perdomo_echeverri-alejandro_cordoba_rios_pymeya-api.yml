@@ -23,6 +23,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          cd backend
           npm install
           npm run build --if-present
           npm run test --if-present
@@ -53,4 +54,4 @@ jobs:
           app-name: 'pymeya-api'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8FAE34C15373460B93C7446F7DAC64E1 }}
-          package: .
+          package: ./backend
