@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - Pymeya
+name: Build and deploy Node.js app to Azure Web App - pymeya-api
 
 on:
   push:
@@ -14,24 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3.8.1
         with:
           node-version: '18.x'
-      - name: npm install, build, and test
+
+      - name: npm install, build
         run: |
-          cd frontend
+          cd backend
           npm install
           npm run build --if-present
-          
+         
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3.1.3
         with:
           name: node-app
-          path: ./frontend
+          path: ./backend
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,15 +43,15 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3.0.2
         with:
           name: node-app
-
+          
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Pymeya'
+          app-name: 'pymeya-api'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5148553D2F974D47830E7848D61BEB06 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8FAE34C15373460B93C7446F7DAC64E1 }}
           package: .
