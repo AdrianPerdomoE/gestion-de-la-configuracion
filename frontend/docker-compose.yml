@@ -1,0 +1,8 @@
+version: "1"
+services:
+
+  web:
+    image: "pymeapp:v1"
+    build: .
+    ports:
+      - "4200:80"
