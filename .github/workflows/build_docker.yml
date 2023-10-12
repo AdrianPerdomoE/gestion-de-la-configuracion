@@ -1,0 +1,46 @@
+name: Building of the container
+
+on:
+  push:
+    branches:
+      - adrian_david_perdomo_echeverri-alejandro_cordoba_rios
+  workflow_dispatch:
+env:
+
+  TAG: ${{ github.run_number }}
+  DOCKER_IMAGE_NAME: ghcr.io/adrianperdomoe/pymeya_web_app_adrian_alejandro:v${{ github.run_number }}
+
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: '18.x'
+
+      - name: Determine Version
+        id: determine-version
+        run: |
+          echo "VERSION=${TAG}"
+          echo "{name}={version::${VERSION}}" >> $GITHUB_OUTPUT
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Start Docker Compose
+        run: | 
+          docker-compose build
+          docker-compose push
+      - name: Clean Up
+        run: docker-compose down --volumes
