@@ -13,7 +13,7 @@ RUN npm run build --prod
 
 #Segunda fase
 
-FROM nginx:lts-alpine
+FROM nginx:1.19.0-alpine
 
 COPY  --from=build-sted /app/dist/proyecto-pymes /usr/share/nginx/html
 
