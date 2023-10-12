@@ -16,7 +16,9 @@ jobs:
     permissions:
       contents: read
       packages: write
-    
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
 
@@ -40,7 +42,6 @@ jobs:
 
       - name: Start Docker Compose
         run: | 
-          cd frontend
           docker-compose build
           docker-compose push
       - name: Clean Up
