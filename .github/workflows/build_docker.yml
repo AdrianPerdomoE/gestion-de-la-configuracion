@@ -40,6 +40,7 @@ jobs:
 
       - name: Start Docker Compose
         run: | 
+          cd frontend
           docker-compose build
           docker-compose push
       - name: Clean Up
